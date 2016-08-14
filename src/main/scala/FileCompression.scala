@@ -12,7 +12,7 @@ object FileCompression {
 
     val spark = SparkSession
       .builder()
-      .appName("Spark SQL Example")
+      .appName("Spark File Compression Handling")
       .master("local")
       .getOrCreate()
 
