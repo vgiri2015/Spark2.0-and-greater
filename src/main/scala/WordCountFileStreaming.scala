@@ -13,6 +13,8 @@ object WordCountFileStreaming {
 
     // Create the FileInputDStream on the directory and use the
     // stream to count words in new files created
+    
+    //Always listen for Latest directory and make sure it gets the files or records for every batches
     val lines = ssc.textFileStream("/tmp/ssclisten/subfolder1/subfolder2")
     val words = lines.flatMap(_.split(" "))
     val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
