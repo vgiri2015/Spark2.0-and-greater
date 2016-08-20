@@ -17,8 +17,11 @@ object WholeStageCodeGenExample {
       .getOrCreate()
 
     //    val df = spark.range(1L, 200000L, 1L, 1).toDF()
-    val df = spark.range(1000).filter("id > 100").selectExpr("sum(id)")
-    df.explain()
+    val startTime = System.nanoTime
+    val df = spark.range(1000L * 1000 * 1000).selectExpr("sum(id)").show()
+    val endTime = System.nanoTime
+    println(s"Total Execution Time " + (endTime - startTime).toDouble / 1000000000 + " seconds")
+    //    df.explain()
   }
 }
 
