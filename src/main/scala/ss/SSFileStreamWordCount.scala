@@ -17,9 +17,14 @@ object SSFileStreamWordCount {
     //read a text file stream
     val textssc = spark.readStream.text("/Users/vgiridatabricks/Downloads/ssc2.0/")
 
+    import spark.implicits._
+    //Required to find encoder for type stored in a DataSet
+
+    val words = textssc.as[String].flatMap(_.split(" "))
+
 
     //Console Sink write stream
-    val wc = textssc.groupBy("word").count()
+    val wc = words.groupBy("value").count()
     val query = wc.writeStream.outputMode("complete").format("console").start()
 
     query.awaitTermination()
