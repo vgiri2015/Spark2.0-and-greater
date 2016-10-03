@@ -1,13 +1,12 @@
-package ss
+package structStreaming
 
 import org.apache.spark.sql.SparkSession
-import com.databricks.spark.csv
-import org.apache.spark.sql.types.StructType
+
 
 /**
   * Created by vgiridatabricks on 10/1/16.
   */
-object SSFileStreamWordCount {
+object FStoConsole04 {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder.master("local")
@@ -22,10 +21,14 @@ object SSFileStreamWordCount {
 
     val words = textssc.as[String].flatMap(_.split(" "))
 
+    val wordCounts = words.groupBy("value").count()
 
-    //Console Sink write stream
-    val wc = words.groupBy("value").count()
-    val query = wc.writeStream.outputMode("complete").format("console").start()
+    //Console Sink write strea
+    val query = wordCounts.writeStream
+      .outputMode("complete")
+      .option("checkpointLocation", "/tmp/filewordcount/chkpoint")
+      .format("console")
+      .start()
 
     query.awaitTermination()
   }

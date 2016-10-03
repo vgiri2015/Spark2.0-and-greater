@@ -1,4 +1,4 @@
-package ss
+package structStreaming
 
 import java.sql.Timestamp
 
@@ -8,7 +8,7 @@ import org.apache.spark.sql.functions._
 /**
   * Created by vgiridatabricks on 10/2/16.
   */
-object SSWindowedSocketWordCount {
+object WindowedWordCount05 {
   def main(args: Array[String]): Unit = {
 
     val windowDuration = s"10 seconds"
