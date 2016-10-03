@@ -30,12 +30,11 @@ object SocketToFile02_Demo {
 
 
     // Generate running word count
-    val wordCounts = words.groupBy("value").count() //This is going to give you value, count as attributes.
+    val wordCounts = words.groupBy("value").count() //This is going to give you value, count as attributes. This is called as Aggregated Streams
 
 
     //File Sink
-    val fsds = words.toDF("value") //Can not do the writestream on wordCounts dataframe because writestream not supported on streaming aggregated dataframe righ now.
-    val query = fsds.writeStream
+    val query = words.writeStream //Can not do the writestream on wordCounts dataframe because writestream not supported on streaming aggregated dataframe righ now.
         .outputMode("append") //Supports Append Only Mode
         .format("parquet")
         .option("checkpointLocation", "/tmp/wordcount/chkpoint") //Must be provided
