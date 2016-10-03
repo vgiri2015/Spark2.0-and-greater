@@ -40,7 +40,7 @@ object SocketToMemory03 {
       .queryName("estable")
       .start()
 
-    val df = spark.sql("select * from estable")
+    val df = spark.sql("select * from estable").show()
 
     query.awaitTermination()
 
