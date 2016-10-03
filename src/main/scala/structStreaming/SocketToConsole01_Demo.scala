@@ -5,7 +5,7 @@ import org.apache.spark.sql.SparkSession
 /**
   * Created by vgiridatabricks on 10/1/16.
   */
-object SocketToConsole01 {
+object SocketToConsole01_Demo {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder
@@ -15,6 +15,7 @@ object SocketToConsole01 {
 
 
     //Required to find encoder for type stored in a DataSet
+
     import spark.implicits._
 
     //Socket Stream
@@ -30,7 +31,7 @@ object SocketToConsole01 {
 
 
     // Generate running word count
-    val wordCounts = words.groupBy("value").count() //This is going to give you value, count as attributes.
+    val wordCounts = words.groupBy("value").count() //This is going to give you [value, count] as attributes.
 
     //Console Sink
     val query = wordCounts.writeStream
