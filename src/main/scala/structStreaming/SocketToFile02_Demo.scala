@@ -5,12 +5,12 @@ import org.apache.spark.sql.SparkSession
 /**
   * Created by vgiridatabricks on 10/1/16.
   */
-object SocketToFile02 {
+object SocketToFile02_Demo {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder
       .master("local")
-      .appName("SocketWordCount")
+      .appName("SocketToFileWordCount")
       .getOrCreate()
 
 
