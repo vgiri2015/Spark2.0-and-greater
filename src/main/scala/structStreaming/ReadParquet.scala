@@ -9,7 +9,7 @@ object ReadParquet {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder.master("local")
-      .appName("FileToElasticWordCount")
+      .appName("Read Parquet File Outputted from Structured Streaming")
       .getOrCreate()
 
 
