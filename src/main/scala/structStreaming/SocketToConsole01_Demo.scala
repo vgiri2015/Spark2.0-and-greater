@@ -10,7 +10,7 @@ object SocketToConsole01_Demo {
     val spark = SparkSession
       .builder
       .master("local")
-      .appName("SocketWordCount")
+      .appName("SocketToConsoleWordCount")
       .getOrCreate()
 
 

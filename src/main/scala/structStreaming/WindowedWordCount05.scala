@@ -30,22 +30,20 @@ object WindowedWordCount05 {
       .option("includeTimestamp", true)
       .load()
 
-    //File Stream
-    //    val textssc = spark.readStream.text("/Users/vgiridatabricks/Downloads/ssc2.0/")
-    //    val wc = textssc.groupBy("word").count()
-
 
     // Split the lines into words, retaining timestamps
-    val words = lines.as[(String, Timestamp)].flatMap(line =>
-      line._1.split(" ").map(word => (word, line._2))
-    ).toDF("word", "timestamp")
-
-    //    words.groupBy($"timestamp",window(windowDuration,slideDuration)).count()
+    val words = lines
+      .as[(String, Timestamp)]
+      .flatMap(
+        line => line._1.split(" ").map(word => (word, line._2))
+      ).toDF("word", "timestamp")
 
     // Group the data by window and word and compute the count of each group
     val windowedCounts = words.groupBy(
       window($"timestamp", windowDuration, slideDuration), $"word"
     ).count().orderBy("window")
+
+    //    windowedCounts.show(1000)
 
     // Start running the query that prints the windowed word counts to the console
     val query = windowedCounts.writeStream
@@ -53,6 +51,8 @@ object WindowedWordCount05 {
       .format("console")
       .option("truncate", "false")
       .start()
+
+
 
     query.awaitTermination()
 

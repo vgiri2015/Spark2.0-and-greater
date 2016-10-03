@@ -10,7 +10,7 @@ object SocketToMemory03 {
     val spark = SparkSession
       .builder
       .master("local")
-      .appName("SocketWordCount")
+      .appName("SocketToMemoryWordCount")
       .getOrCreate()
 
 
@@ -34,13 +34,15 @@ object SocketToMemory03 {
 
 
     //Memory Sink
+    //Am able to load it to Elastic Search when I use Memory Sink
     val query = wordCounts.writeStream
       .outputMode("complete")
       .format("memory")
-      .queryName("estable")
+      .queryName("elastic")
       .start()
 
-    val df = spark.sql("select * from estable").show()
+    val df = spark.sql("select * from elastic")
+    df.groupBy("value").count().show(false)
 
     query.awaitTermination()
 

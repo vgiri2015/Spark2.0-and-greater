@@ -10,7 +10,7 @@ object FStoConsole04 {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder.master("local")
-      .appName("sscFileStream")
+      .appName("FileToConsoleWordCount")
       .getOrCreate()
 
     //read a text file stream
