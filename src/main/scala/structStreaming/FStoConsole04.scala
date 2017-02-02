@@ -16,6 +16,8 @@ object FStoConsole04 {
     //read a text file stream
     val textssc = spark.readStream.text("/Users/vgiridatabricks/Downloads/ssc2.0/")
 
+    spark.readStream
+
     import spark.implicits._
     //Required to find encoder for type stored in a DataSet
 

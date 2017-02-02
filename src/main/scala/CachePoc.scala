@@ -26,6 +26,8 @@ object CachePoc {
     // Encoders are created for case classes
     val caseClassDS = Seq(Person("Andy", 32)).toDS()
 
+    //    caseClassDS.toDF
+
     caseClassDS.show()
     caseClassDS.createOrReplaceTempView("df")
     spark.sql("select count(*) from df").show()

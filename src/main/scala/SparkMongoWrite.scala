@@ -17,6 +17,7 @@ object SparkMongoWrite {
       .master("local")
       .getOrCreate()
 
+
     val df = spark.createDataFrame(
       DataFrameSample("Homer", "Dan Castellaneta", "Good Night") ::
         DataFrameSample("Marge", "Julie Kavner", "Good Night") ::

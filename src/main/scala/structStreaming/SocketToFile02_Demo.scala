@@ -35,11 +35,11 @@ object SocketToFile02_Demo {
 
     //File Sink
     val query = words.writeStream //Can not do the writestream on wordCounts dataframe because writestream not supported on streaming aggregated dataframe righ now.
-        .outputMode("append") //Supports Append Only Mode
-        .format("parquet")
-        .option("checkpointLocation", "/tmp/wordcount/chkpoint") //Must be provided
-        .option("path", "/tmp/wcstreaming") //Path must be specified
-        .start()
+      .outputMode("append") //Supports Append Only Mode
+      .format("parquet")
+      .option("checkpointLocation", "/tmp/wordcount/chkpoint") //Must be provided
+      .option("path", "/tmp/wcstreaming") //Path must be specified
+      .start()
 
     query.awaitTermination()
 
