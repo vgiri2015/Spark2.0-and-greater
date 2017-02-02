@@ -1,5 +1,4 @@
-import org.apache.spark
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.{SparkConf}
 import org.apache.spark.sql.SparkSession
 
 /**
