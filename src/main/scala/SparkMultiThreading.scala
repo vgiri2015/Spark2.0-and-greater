@@ -14,7 +14,7 @@ object SparkMultiThreading {
       .getOrCreate()
 
 
-    val conf = new SparkConf().setAppName("ClusterBy").setMaster("local[2]").set("hive.exec.scratchdir", "D:\\hadoop\\")
+    //    val conf = new SparkConf().setAppName("ClusterBy").setMaster("local[2]").set("hive.exec.scratchdir", "D:\\hadoop\\")
 
 
     //Using Threads
@@ -33,7 +33,7 @@ object SparkMultiThreading {
         SimpsonCharacter("Lisa", "Yeardley Smith", "Good Night") ::
         SimpsonCharacter("Maggie", "Liz Georges and more", "Good Night") ::
         SimpsonCharacter("Sideshow Bob", "Kelsey Grammer", "The Telltale Head") ::
-        Nil).toDF()
+        Nil)
 
     for (a <- 0 until 20) {
       val thread = new Thread {
@@ -52,7 +52,7 @@ object SparkMultiThreading {
           spark.sparkContext.parallelize(Array("mmm", "nnn", "ooo")).toDF().write.format("parquet").mode("overWrite").save("/tmp/vgiri/file12")
           spark.sparkContext.parallelize(Array("ppp", "qqq", "rrr")).toDF().write.format("parquet").mode("overWrite").save("/tmp/vgiri/file13")
           spark.sparkContext.parallelize(Array("sss", "ttt", "uuu")).toDF().write.format("parquet").mode("overWrite").save("/tmp/vgiri/file14")
-          simpsonsDF.write.format("parquet").mode("overwrite").save("/tmp/vgiri/simpsonsDF_files")
+          //          simpsonsDF.write.format("parquet").mode("overwrite").save("/tmp/vgiri/simpsonsDF_files")
           employee.createOrReplaceTempView("employee")
           spark.table("employee").write.mode("overWrite").format("parquet").saveAsTable("emp")
         }
