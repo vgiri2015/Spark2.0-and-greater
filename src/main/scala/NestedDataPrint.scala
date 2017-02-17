@@ -20,7 +20,7 @@ object NestedDataPrint {
     import spark.implicits._
 
     val myrdd = Seq(fullRecord(10,50,nestedRecord("General",.3493,"normal"))).toDS()
-    myrdd.show()
+    myrdd.show(1, false)
 
   }
 }
