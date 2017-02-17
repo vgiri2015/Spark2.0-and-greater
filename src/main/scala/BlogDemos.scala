@@ -14,6 +14,8 @@ object BlogDemos {
 
     val collections = spark.sparkContext.parallelize(1 to 5).collect().foreach(println)
 
+    //Good show
+
 
   }
 }
