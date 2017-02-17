@@ -41,5 +41,4 @@ libraryDependencies ++= Seq(
   // Adding this directly as part of Build.sbt throws Guava Version incompatability issues.
   // Please look my Spark Cassandra Guava Shade Project and use that Jar directly.
   //"com.datastax.spark"     % "spark-cassandra-connector_2.11" % sparkCassandraVersion
-
 )
