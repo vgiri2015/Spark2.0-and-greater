@@ -6,7 +6,7 @@ version := "1.0"
 scalaVersion := "2.11.8"
 
 val overrideScalaVersion = "2.11.8"
-val sparkVersion = "2.1.0"
+val sparkVersion = "2.3.0"
 val sparkXMLVersion = "0.3.3"
 val sparkCsvVersion = "1.4.0"
 val sparkElasticVersion = "2.2.0"
