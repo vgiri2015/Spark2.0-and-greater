@@ -11,7 +11,9 @@ object FindSkewinData {
       .master("local")
       .getOrCreate()
 
-    val rdd1 = spark.sparkContext.parallelize(List(("Hadoop PIG Hive"), ("Hive PIG PIG Hadoop"), ("Hadoop Hadoop Hadoop")))
+    import spark.implicits._
+
+    val rdd1 = spark.sparkContext.parallelize(List(("Hadoop PIG Hive"), ("Hive PIG Hadoop"), ("Hadoop Hadoop Hadoop")))
 
     val rdd2 = rdd1.flatMap(x => x.split(" ")).map(x => (x, 1))
 
@@ -24,8 +26,6 @@ object FindSkewinData {
     rdd4.foreach(println)
 
     rdd5.foreach(println)
-
-
   }
 
 }
