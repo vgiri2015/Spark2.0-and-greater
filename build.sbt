@@ -36,7 +36,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark"      %% "spark-streaming-kafka"     % sscKafkaVersion,
   "org.mongodb.spark"      % "mongo-spark-connector_2.11" %  sparkMongoVersion,
   "com.stratio.datasource" % "spark-mongodb_2.10" % "0.11.1",
-  "io.sensesecure" % "hadoop-xz" % "1.4"
+  "io.sensesecure" % "hadoop-xz" % "1.4",
+  "com.klout" % "brickhouse" % "0.6.0"
 
   // Adding this directly as part of Build.sbt throws Guava Version incompatability issues.
   // Please look my Spark Cassandra Guava Shade Project and use that Jar directly.
