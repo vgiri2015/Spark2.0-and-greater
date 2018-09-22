@@ -1,4 +1,4 @@
-package structStreaming
+package StructStreaming
 
 import java.util.Locale
 

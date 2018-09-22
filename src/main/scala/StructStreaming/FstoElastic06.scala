@@ -1,4 +1,4 @@
-package structStreaming
+package StructStreaming
 
 import org.apache.spark.sql.SparkSession
 

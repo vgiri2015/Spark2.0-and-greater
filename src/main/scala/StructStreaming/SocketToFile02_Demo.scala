@@ -1,4 +1,4 @@
-package structStreaming
+package StructStreaming
 
 import org.apache.spark.sql.SparkSession
 
@@ -38,7 +38,7 @@ object SocketToFile02_Demo {
       .outputMode("append") //Supports Append Only Mode
       .format("parquet")
       .option("checkpointLocation", "/tmp/wordcount/chkpoint") //Must be provided
-      .option("path", "/tmp/wcstreaming") //Path must be specified
+      .option("path", "/tmp/wcstreaming/220") //Path must be specified
       .start()
 
     query.awaitTermination()

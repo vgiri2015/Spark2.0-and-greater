@@ -6,7 +6,7 @@ version := "1.0"
 scalaVersion := "2.11.8"
 
 val overrideScalaVersion = "2.11.8"
-val sparkVersion = "2.3.0"
+val sparkVersion = "2.3.1"
 val sparkXMLVersion = "0.4.1"
 val sparkCsvVersion = "1.4.0"
 val sparkElasticVersion = "2.2.0"
@@ -31,13 +31,17 @@ libraryDependencies ++= Seq(
   "org.apache.spark"      %% "spark-graphx"     % sparkVersion,
   "org.apache.spark"      %% "spark-catalyst"   % sparkVersion,
   "org.apache.spark"      %% "spark-streaming"  % sparkVersion,
-//  "com.101tec"           % "zkclient"         % "0.9",
   "org.elasticsearch"     %% "elasticsearch-spark"        %     sparkElasticVersion,
   "org.apache.spark"      %% "spark-streaming-kafka"     % sscKafkaVersion,
   "org.mongodb.spark"      % "mongo-spark-connector_2.11" %  sparkMongoVersion,
   "com.stratio.datasource" % "spark-mongodb_2.10" % "0.11.1",
   "io.sensesecure" % "hadoop-xz" % "1.4",
-  "com.klout" % "brickhouse" % "0.6.0"
+  "com.klout" % "brickhouse" % "0.6.0",
+  "org.scalaj" %% "scalaj-http" % "2.2.1",
+  "org.jfarcand" % "wcs" % "1.5",
+  "net.jpountz.lz4" % "lz4" % "1.3.0",
+  "com.microsoft.azure" % "azure-eventhubs-spark_2.11" % "2.3.2",
+  "com.databricks" % "dbutils-api_2.11" % "0.0.3"
 
   // Adding this directly as part of Build.sbt throws Guava Version incompatability issues.
   // Please look my Spark Cassandra Guava Shade Project and use that Jar directly.

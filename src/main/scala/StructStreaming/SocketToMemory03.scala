@@ -1,21 +1,20 @@
-package structStreaming
+package StructStreaming
 
 import org.apache.spark.sql.SparkSession
 
 /**
   * Created by vgiridatabricks on 10/1/16.
   */
-object SocketToConsole01_Demo {
+object SocketToMemory03 {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder
       .master("local")
-      .appName("SocketToConsoleWordCount")
+      .appName("SocketToMemoryWordCount")
       .getOrCreate()
 
 
     //Required to find encoder for type stored in a DataSet
-
     import spark.implicits._
 
     //Socket Stream
@@ -31,13 +30,19 @@ object SocketToConsole01_Demo {
 
 
     // Generate running word count
-    val wordCounts = words.groupBy("value").count() //This is going to give you [value, count] as attributes.
+    val wordCounts = words.groupBy("value").count() //This is going to give you value, count as attributes.
 
-    //Console Sink
+
+    //Memory Sink
+    //Am able to load it to Elastic Search when I use Memory Sink
     val query = wordCounts.writeStream
       .outputMode("complete")
-      .format("console")
+      .format("memory")
+      .queryName("elastic")
       .start()
+
+    val df = spark.sql("select * from elastic")
+    df.groupBy("value").count().show(false)
 
     query.awaitTermination()
 
