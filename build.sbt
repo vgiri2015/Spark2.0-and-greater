@@ -41,7 +41,8 @@ libraryDependencies ++= Seq(
   "org.jfarcand" % "wcs" % "1.5",
   "net.jpountz.lz4" % "lz4" % "1.3.0",
   "com.microsoft.azure" % "azure-eventhubs-spark_2.11" % "2.3.2",
-  "com.databricks" % "dbutils-api_2.11" % "0.0.3"
+  "com.databricks" % "dbutils-api_2.11" % "0.0.3",
+  "net.snowflake" %% "spark-snowflake" % "2.4.6"
 
   // Adding this directly as part of Build.sbt throws Guava Version incompatability issues.
   // Please look my Spark Cassandra Guava Shade Project and use that Jar directly.

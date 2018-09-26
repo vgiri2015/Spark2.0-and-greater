@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark2-0-and-greater.iml" filepath="$PROJECT_DIR$/.idea/modules/spark2-0-and-greater.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark2-0-and-greater-build.iml" filepath="$PROJECT_DIR$/.idea/modules/spark2-0-and-greater-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark2.0-and-greater.iml" filepath="$PROJECT_DIR$/.idea/modules/spark2.0-and-greater.iml" />
     </modules>
   </component>
 </project>
