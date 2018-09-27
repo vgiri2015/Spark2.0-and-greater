@@ -13,10 +13,12 @@ object SnowFlake {
 
     val options = Map("sfUrl" -> "ui14160.snowflakecomputing.com",
       "sfUser" -> "databricks",
-      "sfPassword" -> "gV6UU*0iS44S",
+      "sfPassword" -> "",
       "sfDatabase" -> "DATABRICKS_DEMO",
       "sfSchema" -> "DATABRICKS_DEMO",
       "sfWarehouse" -> "CONNECTOR_INTEGRATION_TEST")
+
+
 
 //    Testing SQL based execution
 //    val query = "select AGE, WORKCLASS, EDUCATION, RACE FROM DATABRICKS_DEMO.DATABRICKS_DEMO.ADULT"
@@ -55,7 +57,6 @@ object SnowFlake {
     val df3 = df1.union(df2)
 
     df3.show(100)
-
 
   }
 }

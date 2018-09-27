@@ -310,7 +310,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/spark-snowflake_2.11-2.4.7-SNAPSHOT.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/snowflake-jdbc-3.6.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -319,7 +319,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/snowflake-jdbc-3.6.12.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/spark-snowflake_2.11-2.4.7-SNAPSHOT.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
