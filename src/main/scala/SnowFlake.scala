@@ -36,6 +36,9 @@ object SnowFlake {
 //    df.show(100)
 
 //    Testing Union Query
+//      Works with https://github.com/snowflakedb/spark-snowflake/tree/spark_2.4-snapshot jar I built
+    // in /usr/local/Cellar/spark-snowflake/target/scala-2.11/spark-snowflake_2.11-2.4.7-SNAPSHOT.jar
+    // and /Users/vgiridatabricks/.ivy2/cache/net.snowflake/snowflake-jdbc/jars/snowflake-jdbc-3.6.12.jar
 
     val query = "select AGE, WORKCLASS, EDUCATION, RACE FROM DATABRICKS_DEMO.DATABRICKS_DEMO.ADULT"
 
