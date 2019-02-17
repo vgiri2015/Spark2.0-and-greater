@@ -19,6 +19,8 @@ object SparkBucketBy {
 
     spark.sql("drop table if exists bucket0")
 
+    spark.sql(sqlText = "select * from bucket0").show(10)
+
     df.write.bucketBy(10, "x").saveAsTable("bucket0")
 
     spark.sql("select * from bucket0 a join bucket0 b on a.x=b.x").explain()
